@@ -8,6 +8,7 @@ url = "https://tobias.okta.com"
 
 @app.route("/register", methods = ['GET', 'POST'])
 def register():
+    print(request.get_json())
     return jsonify(commands = [ { "type" : "com.okta.action.update", "value": { "registration":"ALLOW"}}, {"type":"com.okta.user.profile.update", "value":{"registrationNumber":12345}}])
 
 @app.route("/", methods = ['GET'])
